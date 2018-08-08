@@ -53,7 +53,8 @@ public class Plugins {
     public Plugins(Map<String, String> props) {
         List<String> pluginLocations = WorkerConfig.pluginLocations(props);
         delegatingLoader = newDelegatingClassLoader(pluginLocations);
-        delegatingLoader.initLoaders();
+        delegatingLoader.initLoadersFromPluginPaths();
+        delegatingLoader.addAllAliases();
     }
 
     private static DelegatingClassLoader newDelegatingClassLoader(final List<String> paths) {

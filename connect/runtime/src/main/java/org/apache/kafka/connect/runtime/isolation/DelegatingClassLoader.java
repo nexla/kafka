@@ -150,12 +150,16 @@ public class DelegatingClassLoader extends URLClassLoader {
     }
 
     protected void initLoaders() {
-        for (String configPath : pluginPaths) {
-            initPluginLoader(configPath);
-        }
+        initLoadersFromPluginPaths();
         // Finally add parent/system loader.
         initPluginLoader(CLASSPATH_NAME);
         addAllAliases();
+    }
+
+    protected void initLoadersFromPluginPaths() {
+        for (String configPath : pluginPaths) {
+            initPluginLoader(configPath);
+        }
     }
 
     private void initPluginLoader(String path) {
@@ -331,7 +335,7 @@ public class DelegatingClassLoader extends URLClassLoader {
         return super.loadClass(fullName, resolve);
     }
 
-    private void addAllAliases() {
+    protected void addAllAliases() {
         addAliases(connectors);
         addAliases(converters);
         addAliases(headerConverters);
