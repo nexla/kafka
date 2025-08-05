@@ -1,5 +1,7 @@
 Apache Kafka
 =================
+### Building and deploying steps with custom changes
+
 Along with the custom changes in the branch. It also has changes in [ConsumerCoordinator.java](https://github.com/nexla/backend-connectors/blob/71606b65da007f9e9d7b04c614d4d9281a9173ef/common-connector/src/main/java/org/apache/kafka/clients/consumer/internals/ConsumerCoordinator.java) placed under `backend-connectors` repo. 
 
 - Build kafka-client by following the steps outlined under next section.
